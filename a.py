@@ -58,21 +58,21 @@ def start_avoidance():
 			if distance < back_distance: # backward
 				print( "backward")
 				fw.turn(opposite_angle())
-				bw.backward()
+				bw.forward()
 				bw.speed = backward_speed
 				time.sleep(1)
 				fw.turn(opposite_angle())
-				bw.forward()
+				bw.backward()
 				time.sleep(1)
 			elif distance < turn_distance: # turn
 				print("turn")
 				fw.turn(rand_dir())
-				bw.forward()
+				bw.backward()
 				bw.speed = forward_speed
 				time.sleep(1)
 			else:
 				fw.turn_straight()
-				bw.forward()
+				bw.backward()
 				bw.speed = forward_speed
 
 		else:						# forward
@@ -80,7 +80,7 @@ def start_avoidance():
 			if count > timeout:  # timeout, stop;
 				bw.stop()
 			else:
-				bw.backward()
+				bw.forward()
 				bw.speed = forward_speed
 				count += 1
 
